@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+   www:
+      build:
+         context: .
+         dockerfile: Dockerfile
+      ports:
+         - 3007:80
+      volumes: [
+         /var/www/docker-compose-lamp/:/usr/local/apache2/htdocs/
+      ]
+      networks:
+         - default
+      links:
+         - db
+   db:
+      image: mysql
+      ports:
+         - 3308:3306
+      command: --default-authentication-plugin=mysql_native_password
+      environment:
+         #MYSQL_USER: root
+         MYSQL_PASSWORD: Pulido1234
+         MYSQL_DATABASE: tienda
+         MYSQL_ROOT_PASSWORD: Pulido1234
+      volumes: [
+         ./db/:/docker-entrypoint-initdb.d/
+      ]
+   phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      links:
+         - db:db
+      ports:
+         - 8000:8001
+      environment:
+         MYSQL_USER: root
+         MYSQL_PASSWORD: Pulido1234pma
+         MYSQL_ROOT_PASSWORD: Pulido1234pma
+volumes:
+   persistent:

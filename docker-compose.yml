@@ -1,0 +1,43 @@
+version: "3.8"
+services:
+   nginx:
+      build:
+         context: ./nginx/
+         dockerfile: Dockerfile
+      image: revanhub/nginx-integracion:latest
+      ports:
+         - 3007:80
+      volumes: [
+         ./nginx/www/:/usr/share/nginx/html
+      ]
+      networks:
+         - default
+      links:
+         - db
+   db:
+      build:
+          context: ./mysql/
+          dockerfile: Dockerfile
+      ports:
+         - 3308:3306
+      command: --default-authentication-plugin=mysql_native_password
+      environment:
+         MYSQL_USER: laravel
+         MYSQL_PASSWORD: Xc1Sd2We3Qw4
+         MYSQL_DATABASE: integracion
+         MYSQL_ROOT_PASSWORD: Xc1Sd2We3Qw4
+      volumes: [
+         ./mysql/db/:/docker-entrypoint-initdb.d/
+      ]
+   pma:
+      image: phpmyadmin/phpmyadmin
+      links:
+         - db:db
+      ports:
+         - 8000:8001
+      environment:
+         MYSQL_USER: laravel
+         MYSQL_PASSWORD: Xc1Sd2We3Qw4
+         MYSQL_ROOT_PASSWORD: Xc1Sd2We3Qw4
+volumes:
+   persistent:
