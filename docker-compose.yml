@@ -1,16 +1,18 @@
 version: "3.8"
 services:
    webserv:
+      #image: httpd:latest
       build:
          context: ./web-serv/
          dockerfile: Dockerfile
-      #image: httpd
       volumes:
          - ./web-serv/www:/var/www/html
          - ./web-serv/laravel:/var/www/html
+         # Copiamos el config de INI para poder añadir acceder a todas las funcionalidades PDO DE LARAVEL
+         - ./web-serv/conf/php.ini:/usr/local/etc/php/php.ini
       ports:
-         - 3007:80
-         - 3008:8000
+         - "3007:80"
+         - "3008:8000"
    #Pendiente de arreglar
    #nginx:
    #   build:
@@ -47,23 +49,17 @@ services:
     volumes:
       - /mysql/sql/:/var/lib/mysql
     restart: always
-
-   adminer:
-      image: adminer
-      restart: always
+   pma:
+      image: phpmyadmin/phpmyadmin
+      links:
+         - db:db
       ports:
-         - 8080:8080
-   #pma:
-   #   image: phpmyadmin/phpmyadmin
-   #   links:
-   #      - db:db
-   #   ports:
-   #      - 8000:8001
-   #   environment:
-   #      MYSQL_USER: laravel
-   #      MYSQL_PASSWORD: laravel_app
-   #      MYSQL_ROOT_PASSWORD: laravel_app
-volumes:
-   persistent:
+         - "8001:80"
+      environment:
+         PMA_HOST: db
+         PMA_USER: root
+         PMA_PASSWORD: example
+#volumes:
+#   persistent:
 networks:
    default:

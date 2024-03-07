@@ -1,8 +1,35 @@
-FROM php:8.2-apache
-LABEL description="Servicio de Servidor Web Apache2 en Contenedor"
+# Usa la imagen base de httpd
+FROM httpd:latest
 
-# Instala las dependencias necesarias
+# Actualiza el sistema y luego instala las dependencias necesarias
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    libbz2-dev \
+    libzip-dev \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    unzip
 
+# Habilitar manualmente el módulo de reescritura de Apache
+RUN sed -i '/LoadModule rewrite_module/s/^#//g' /usr/local/apache2/conf/httpd.conf
+
+# Habilita los módulos de Apache necesarios
+#RUN a2enmod rewrite
+
+# Instala PHP
+RUN apt-get install -y \
+    php \
+    php-cli \
+    php-bz2 \
+    php-mbstring \
+    php-mysqli \
+    php-pdo \
+    php-openssl \
+    php-zip \
+    php-curl
+
+# Instala Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Instala las dependencias necesarias para desarrollo (por si se incluye en futuras
 # updates o se necesita su uso con node)
@@ -14,9 +41,9 @@ LABEL description="Servicio de Servidor Web Apache2 en Contenedor"
 #Genero una clave para artisan 
 #CMD ["php", "artisan", "key:generate"]
 # Instalamos repositorio de composer
-RUN mkdir /usr/local/bin/composer
-COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-COPY /www /var/www/html
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY /www /usr/local/apache2/htdocs
+#RUN cd /var/www/html
 #CMD ["php", "artisan", "migrate:fresh", "--seed"]
 # Ejecuta el comando php artisan serve al iniciar el contenedor
 #CMD ["php", "artisan", "serve", "--host", "0.0.0.0", "--port", "8000"]
