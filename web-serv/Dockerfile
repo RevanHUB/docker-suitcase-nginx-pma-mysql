@@ -8,28 +8,37 @@ RUN apt-get update && \
     libzip-dev \
     libcurl4-openssl-dev \
     libssl-dev \
-    unzip
+    unzip \
+    zip 
+    #php-zip \
+    #php-mbstring \
+    #php \
+    #php-cli \
+    #php-cgi \
+    #php-mysql \
+    #php-curl 
+    #libapache2-mod-php
 
 # Habilitar manualmente el módulo de reescritura de Apache
-RUN sed -i '/LoadModule rewrite_module/s/^#//g' /usr/local/apache2/conf/httpd.conf
+#RUN sed -i '/LoadModule rewrite_module/s/^#//g' /usr/local/apache2/conf/httpd.conf
 
 # Habilita los módulos de Apache necesarios
 #RUN a2enmod rewrite
 
 # Instala PHP
-RUN apt-get install -y \
-    php \
-    php-cli \
-    php-bz2 \
-    php-mbstring \
-    php-mysqli \
-    php-pdo \
-    php-openssl \
-    php-zip \
-    php-curl
+#RUN apt-get install -y \
+#    php \
+#    php-cli \
+#    php-bz2 \
+#    php-mbstring \
+#    php-mysqli \
+#    php-pdo \
+#    php-openssl \
+#    php-zip \
+#    php-curl
 
 # Instala Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Instala las dependencias necesarias para desarrollo (por si se incluye en futuras
 # updates o se necesita su uso con node)
@@ -42,7 +51,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 #CMD ["php", "artisan", "key:generate"]
 # Instalamos repositorio de composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-COPY /www /usr/local/apache2/htdocs
+
+RUN sudo a2enmod php8.2 
+#COPY /www /usr/local/apache2/htdocs
 #RUN cd /var/www/html
 #CMD ["php", "artisan", "migrate:fresh", "--seed"]
 # Ejecuta el comando php artisan serve al iniciar el contenedor

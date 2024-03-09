@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:latest
 LABEL description="Servicio de Servidor Web NginX en Contenedor"
 
 # Instala las dependencias necesarias
@@ -16,10 +16,10 @@ RUN apt-get install -y nodejs
 RUN mkdir /usr/local/bin/composer
 #COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
-RUN chown -R www-data:www-data /usr/share/nginx/html
-RUN chmod 777 /usr/share/nginx/
-RUN chmod 777 /usr/share/nginx/html
-RUN chmod 777 /usr/share/nginx/html/index.php
+#RUN chown -R www-data:www-data /usr/share/nginx/html
+#RUN chmod 755 /usr/share/nginx/
+#RUN chmod 755 /usr/share/nginx/html
+#RUN chmod 755 /usr/share/nginx/html/index.php
 
 EXPOSE 80
 
