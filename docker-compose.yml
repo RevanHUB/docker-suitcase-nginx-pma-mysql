@@ -12,6 +12,13 @@ services:
       ports:
          - "3008:80"
          - "3009:8000"
+      dns:
+         - 8.8.8.8
+         - 4.4.4.4
+      links: 
+         - db:db
+      depends_on:
+         - db
    nginx:
       build:
          context: ./nginx/
