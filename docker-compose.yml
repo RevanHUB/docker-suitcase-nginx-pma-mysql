@@ -5,7 +5,8 @@ services:
          context: ./web-serv/
          dockerfile: Dockerfile
       volumes:
-         - ./web-serv/www:/usr/local/apache2/htdocs
+         #- ./web-serv/www:/var/www/html
+         - ./web-serv/laravel:/var/www/html
          # Copiamos el config de INI para poder añadir acceder a todas las funcionalidades PDO DE LARAVEL
          - ./web-serv/conf/php.ini:/usr/local/etc/php/php.ini
       ports:
@@ -30,21 +31,21 @@ services:
          - php-fpm
       depends_on:
          - php-fpm
-   api:
-      build:
-         context: ./api/
-         dockerfile: Dockerfile
+   #api:
+   #   build:
+   #      context: ./api/
+   #      dockerfile: Dockerfile
       #image: revanhub/nginx-integracion:latest
-      ports:
-         - "8000:8000" # Puerto de Nginx API Escucha
-      volumes: 
+   #   ports:
+   #      - "8000:8000" # Puerto de Nginx API Escucha
+   #   volumes: 
          #Integrados archivos de la API
-         - ./api/api/:/var/www/html
-         - ./api/php/php.ini:/etc/php/8.2/cli/php.ini # Copio la config de PHP 
+   #      - ./api/api/:/var/www/html
+   #      - ./api/php/php.ini:/etc/php/8.2/cli/php.ini # Copio la config de PHP 
       # Suaviza la recursividad dns evitando periodos de grandes latencias
-      dns: 
-         - 8.8.8.8
-         - 4.4.4.4
+   #   dns: 
+   #      - 8.8.8.8
+   #      - 4.4.4.4
    #   links:
    #      - db
    # servidor PHP para nginx

@@ -1,8 +1,12 @@
 # Usa la imagen base de httpd
-FROM httpd:latest
+FROM ubuntu:latest
 
 # Instala las dependencias necesarias
 RUN apt-get -y update && apt-get -y upgrade
+
+
+# Instalo apache 
+RUN apt install -y apache2
 
 # Agrego las dependencias de ondrej para poder instalar PHP 8.2
 RUN apt-get install -y software-properties-common
@@ -63,11 +67,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 # Instalamos repositorio de composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN sudo a2enmod php8.2 
+RUN a2enmod php8.2 
 #COPY /www /usr/local/apache2/htdocs
 #RUN cd /var/www/html
 #CMD ["php", "artisan", "migrate:fresh", "--seed"]
 # Ejecuta el comando php artisan serve al iniciar el contenedor
 #CMD ["php", "artisan", "serve", "--host", "0.0.0.0", "--port", "8000"]
 
-
+ENTRYPOINT ["sh", "-c", "tail -f /dev/null & pid=$!; trap 'kill $pid' SIGINT; wait"]
