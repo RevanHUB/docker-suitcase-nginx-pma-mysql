@@ -1,23 +1,34 @@
 # Usa la imagen base de httpd
 FROM httpd:latest
 
+# Instala las dependencias necesarias
+RUN apt-get -y update && apt-get -y upgrade
+
+# Agrego las dependencias de ondrej para poder instalar PHP 8.2
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository ppa:ondrej/php 
+RUN apt update -y
+
 # Actualiza el sistema y luego instala las dependencias necesarias
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+RUN apt-get install -y --no-install-recommends \
     libbz2-dev \
     libzip-dev \
     libcurl4-openssl-dev \
     libssl-dev \
     unzip \
     zip 
-    #php-zip \
-    #php-mbstring \
-    #php \
-    #php-cli \
-    #php-cgi \
-    #php-mysql \
-    #php-curl 
-    #libapache2-mod-php
+
+# Instalo dependencias de uso para laravel y PHP
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    nano \
+    curl \
+    php8.2 \ 
+    php-xml \ 
+    php-curl \
+    php-mbstring \
+    php-cli \
+    php-cgi \
+    php-mysql 
 
 # Habilitar manualmente el módulo de reescritura de Apache
 #RUN sed -i '/LoadModule rewrite_module/s/^#//g' /usr/local/apache2/conf/httpd.conf

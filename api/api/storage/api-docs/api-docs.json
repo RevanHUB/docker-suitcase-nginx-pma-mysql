@@ -1,0 +1,919 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Integracion",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000"
+        }
+    ],
+    "paths": {
+        "/api/login/": {
+            "get": {
+                "tags": [
+                    "Autenticación"
+                ],
+                "summary": "Loguear en la API",
+                "operationId": "ed6107a601a2242b128d06b47821105e",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/ayuntamientos": {
+            "get": {
+                "tags": [
+                    "Ayuntamientos"
+                ],
+                "summary": "Mostrar ayuntamientos",
+                "operationId": "ceadadd73eb9c9bd76c6849ddf603d54",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/ayuntamientos/": {
+            "post": {
+                "tags": [
+                    "Ayuntamientos"
+                ],
+                "summary": "Crear ayuntamientos",
+                "operationId": "06bf5f10dd506080149466e4e5002cd1",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/ayuntamientos/:id": {
+            "get": {
+                "tags": [
+                    "Ayuntamientos"
+                ],
+                "summary": "Muestra el ayuntamiento por ID",
+                "operationId": "16f9fa9059eefa5bf8e05a0bd8c39868",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Ayuntamientos"
+                ],
+                "summary": "Actualizar ayuntamientos",
+                "operationId": "d6f1aad0f2b8291fcbc01a586d7c8143",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Ayuntamientos"
+                ],
+                "summary": "Borrar ayuntamientos",
+                "operationId": "b1b3c9b9d12459b062769c3367d74a78",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/comercios/": {
+            "get": {
+                "tags": [
+                    "Comercios"
+                ],
+                "summary": "Mostrar comercios",
+                "operationId": "c5c49c3214cc8abcf218bbb77d3f87c7",
+                "responses": {
+                    "200": {
+                        "description": "Se ha actualizado el usuario."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Comercios"
+                ],
+                "summary": "Crear comercio",
+                "operationId": "7cec8e912afb282a6fdcaee581082b99",
+                "responses": {
+                    "200": {
+                        "description": "Se ha creado el elemento."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/comercios/:id": {
+            "get": {
+                "tags": [
+                    "Comercios"
+                ],
+                "summary": "Mostrar un comercio por ID",
+                "operationId": "34b2520e1855162ac1b81fa61d2f4f9e",
+                "responses": {
+                    "200": {
+                        "description": "Se ha actualizado el usuario."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Comercios"
+                ],
+                "summary": "Actualizar comercios",
+                "operationId": "2f379b5b7b0a4e17e5554399f8eb52d2",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Comercios"
+                ],
+                "summary": "Borrar comercios",
+                "operationId": "90e098f9d7dfaf222067173c8acf459a",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/etiquetas": {
+            "get": {
+                "tags": [
+                    "Etiquetas"
+                ],
+                "summary": "Mostrar etiquetas",
+                "operationId": "8a877e5ac008fd95bb7eebd08587864d",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todos los elementos."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Etiquetas"
+                ],
+                "summary": "Crear etiqueta",
+                "operationId": "17a1e627805adbab9080601668819b17",
+                "responses": {
+                    "200": {
+                        "description": "Se ha creado la etiqueta."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/etiquetas/:id": {
+            "get": {
+                "tags": [
+                    "Etiquetas"
+                ],
+                "summary": "Muestra la etiqueta por ID",
+                "operationId": "258edad449ddcc018ba500216fc82da7",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Etiquetas"
+                ],
+                "summary": "Actualizar etiquetas",
+                "operationId": "6d203de4d34885f25a7101c745c1a351",
+                "responses": {
+                    "200": {
+                        "description": "Se ha actualizado el elemento."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Etiquetas"
+                ],
+                "summary": "Borra etiquetas",
+                "operationId": "b57002a9379baa09b1505d87a23253fe",
+                "responses": {
+                    "200": {
+                        "description": "Se ha borrado el elemento."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/particulares/": {
+            "get": {
+                "tags": [
+                    "Particulares"
+                ],
+                "summary": "Mostrar particulares",
+                "operationId": "6417b33bfd5e0a10acfda4cde8a00f14",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Particulares"
+                ],
+                "summary": "Crear particular",
+                "operationId": "097624626073882ac9c8f9ea85a96175",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/particulares/:id": {
+            "get": {
+                "tags": [
+                    "Particulares"
+                ],
+                "summary": "Mostrar particular por ID",
+                "operationId": "156a98cae786e4cc6add55f71ba2ed4b",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Particulares"
+                ],
+                "summary": "Actualizar particulares",
+                "operationId": "512f2b8e891efade98ef801ddf43e321",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Particulares"
+                ],
+                "summary": "Borrar particulares",
+                "operationId": "ff0beb7eaab5ac82f0d7a4214e54ccce",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/publicaciones": {
+            "get": {
+                "tags": [
+                    "Publicaciones"
+                ],
+                "summary": "Mostrar publicaciones",
+                "operationId": "c12dd3fc46f73ab9bd003c1bdd4fe5f3",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todas las publicaciones."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Publicaciones"
+                ],
+                "summary": "Crear publicaciones",
+                "operationId": "986809601e87e42997c7a68183f447af",
+                "responses": {
+                    "200": {
+                        "description": "Crea la publicación."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/publicaciones/:id": {
+            "get": {
+                "tags": [
+                    "Publicaciones"
+                ],
+                "summary": "Mostrar una publicacion",
+                "operationId": "a5379d5961ad145ed7b025f9b585fbf6",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar una publicacion."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Publicaciones"
+                ],
+                "summary": "Actualizar publicaciones",
+                "operationId": "b3bb76ec3260aee5d1367421b0195c0e",
+                "responses": {
+                    "200": {
+                        "description": "Se ha actualizado el usuario."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/publicacion": {
+            "delete": {
+                "tags": [
+                    "Publicaciones"
+                ],
+                "summary": "Borra la publicacion",
+                "operationId": "bb91b4b5c28788ac4ad24bbb929e9c63",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todos los usuarios."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/seguidos": {
+            "get": {
+                "tags": [
+                    "Seguidos"
+                ],
+                "summary": "Mostrar seguidos",
+                "operationId": "f585a51a38975b7193e3fab341ece70e",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Seguidos"
+                ],
+                "summary": "Crear seguidor",
+                "operationId": "33972210f3ca510910c5b6743e09fb19",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/seguidos/:id": {
+            "get": {
+                "tags": [
+                    "Seguidos"
+                ],
+                "summary": "Muestra los seguidores de un usuario dado por ID",
+                "operationId": "256360a0b202780945882241ce17c843",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/obtenerseguidos/:id": {
+            "get": {
+                "tags": [
+                    "Seguidos"
+                ],
+                "summary": "Muestra los seguidos de un usuario dado por id",
+                "operationId": "1b74a6f634bd08f3112b870f47e0f2c5",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/seguidos/borrar": {
+            "post": {
+                "tags": [
+                    "Seguidos"
+                ],
+                "summary": "Borrar seguido",
+                "operationId": "d996384654840baef88715f2dbc761c4",
+                "responses": {
+                    "200": {
+                        "description": "Se ha completado la petición."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Mostrar usuarios",
+                "operationId": "eaedf6aa84fde38a08bf5d87308169f7",
+                "responses": {
+                    "200": {
+                        "description": "Se mostraran todos los usuarios."
+                    },
+                    "401": {
+                        "description": "Necesitas loguear"
+                    },
+                    "404": {
+                        "description": "Contenido no encontrado"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Crear usuarios",
+                "operationId": "e2308aae8643f8f4d79821a6399114f3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "usuario": {
+                                        "description": "Nombre del usuario",
+                                        "type": "string",
+                                        "example": "documentacion_1"
+                                    },
+                                    "email": {
+                                        "description": "Correo electrónico del usuario",
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "documentacion_1@gmail.com"
+                                    },
+                                    "nombre": {
+                                        "description": "Nombre del individuo",
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "documentacion_1"
+                                    },
+                                    "direccion": {
+                                        "description": "Direccion del usuario",
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Documentando una api"
+                                    },
+                                    "id_municipio": {
+                                        "description": "Id del municipio",
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "password": {
+                                        "description": "Password del usuario",
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password"
+                                    },
+                                    "telefono": {
+                                        "description": "Telefono del usuario",
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "123456789"
+                                    },
+                                    "avatar": {
+                                        "description": "Avatar del usuario",
+                                        "type": "string",
+                                        "format": "ejemplo.png",
+                                        "example": "documentacion_1.png"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se ha creado el usuario."
+                    },
+                    "401": {
+                        "description": "Necesitas loguear"
+                    },
+                    "404": {
+                        "description": "Contenido no encontrado"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/users/{id}": {
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Actualizar usuarios",
+                "operationId": "15f5757522724ebca9bac30479321b45",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del elemento a actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "readOnly": true
+                        },
+                        "example": 14
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "usuario": {
+                                        "description": "Nombre del usuario",
+                                        "type": "string",
+                                        "example": "documentacion_cambio"
+                                    },
+                                    "password": {
+                                        "description": "Contraseña del usuario",
+                                        "type": "password",
+                                        "example": "password"
+                                    },
+                                    "nombre": {
+                                        "description": "Nombre identificativo",
+                                        "type": "string",
+                                        "example": "Documentacion Api"
+                                    },
+                                    "email": {
+                                        "description": "Nombre del usuario",
+                                        "type": "email",
+                                        "example": "documentacion_cambio@email.com"
+                                    },
+                                    "direccion": {
+                                        "description": "Direccion del usuario",
+                                        "type": "string",
+                                        "example": "Documentacion Cambio Direccion"
+                                    },
+                                    "id_municipio": {
+                                        "description": "Nombre del usuario",
+                                        "type": "string",
+                                        "example": "1"
+                                    },
+                                    "telefono": {
+                                        "description": "Telefono del usuario",
+                                        "type": "string",
+                                        "example": "123456789"
+                                    },
+                                    "avatar": {
+                                        "description": "Avatar del usuario",
+                                        "type": "string",
+                                        "example": "documentacion.png"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se ha actualizado el usuario."
+                    },
+                    "404": {
+                        "description": "No se ha encontrado el id del usuario o el usuario."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    },
+                    "401": {
+                        "description": "Error de validacion del usuario."
+                    },
+                    "500": {
+                        "description": "No se ha podido realizar el cambio en el servidor."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Borra usuarios",
+                "operationId": "98b6e09e3d231384330198299feb017f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del elemento a eliminar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Se ha creado el usuario."
+                    },
+                    "403": {
+                        "description": "Error de permisos."
+                    },
+                    "404": {
+                        "description": "No se ha encontrado el elemento."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    },
+                    "401": {
+                        "description": "Necesitas loguear."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearer_token": {
+                "type": "http",
+                "scheme": "bearer",
+                "description": "Enter token in format (Bearer Token)",
+                "name": "Authorization",
+                "in": "header"
+            },
+            "sanctum": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
